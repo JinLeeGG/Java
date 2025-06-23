@@ -1,4 +1,4 @@
-# Java Programming Language Notes
+# Java Introduction & History
 
 ## 프로그래밍 언어란?
 프로그래밍 언어는 개발자와 컴퓨터가 소통하기 위한 언어이다. 인간의 언어를 컴퓨터가 이해할 수 있는 형태로 변환하여 명령을 전달하는 매개체 역할을 한다.

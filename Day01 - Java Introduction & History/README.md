@@ -1,4 +1,4 @@
-# Day1 - What is Java? (2025/06/23)
+# Day1 - Java Introduction & History (2025/06/23)
 
 ## What is a Programming Language?
 A programming language is a language that allows developers and computers to communicate. It serves as a medium to convert human language into a form that computers can understand and execute commands.
