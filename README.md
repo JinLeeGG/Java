@@ -7,12 +7,12 @@ Comprehensive notes and code examples from the Java programming course in Korea 
 ```
 java-class-notes/
 ├── day01-Java-Introduction/
-│   ├── notes-korean.md
-│   ├── notes-english.md
+│   ├── korNotes.md
+│   ├── README.md
 │   └── code-examples/
 ├── day02-Variables-DataTypes/
-│   ├── notes-korean.md
-│   ├── notes-english.md
+│   ├── korNotes.md
+│   ├── README.md
 │   └── code-examples/
 └── ...
 ```
@@ -20,8 +20,8 @@ java-class-notes/
 ## Content Organization
 
 Each daily folder contains:
-- **Korean notes** (`notes-korean.md`) - Class notes in Korean
-- **English notes** (`notes-english.md`) - Translated and expanded notes
+- **Korean notes** (`korNotes.md`) - Class notes in Korean
+- **English notes** (`README.md`) - Translated and expanded notes
 - **Code examples** (`code-examples/`) - Practical implementations from class
 
 ## Course Topics
@@ -48,7 +48,6 @@ Each daily folder contains:
 - Browse topics by day folders
 - Choose Korean or English notes based on preference
 - Practice with provided code examples
-- Follow sequential order for progressive learning
 
 ## License
 
