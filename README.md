@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/39ab3420-e8d9-44f1-af8b-f726cc0af61e)
+
+
 # Java Class Notes
 
 Comprehensive notes and code examples from the Java programming course in Korea IT Academy.
