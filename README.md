@@ -30,8 +30,9 @@ Each daily folder contains:
 ## Course Topics
 
 ### Fundamentals
-- Day 01: Java Introduction & History (2025/06/24)
-- Day 02: Java Data Types, Variables, Casting (2025/06/25)
+- Day 01: Java Introduction & History (2025/06/23)
+- Day 02: Java Data Types, Variables, Casting (2025/06/24)
+- Day 03: Java Input, Operator (2025/06/25)
 
 
 ## Setup
