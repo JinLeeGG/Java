@@ -1,4 +1,4 @@
-# Java Operator (2025/06/25)
+# Java 연산자 (2025/06/25)
 
 ## 1. 입력 (Input)
 
@@ -180,6 +180,7 @@ public class OperTask1 {
         Scanner sc = new Scanner(System.in);
         int num1 = 0, num2 = 0, division = 0, remainder = 0;
         
+        System.out.println("두 정수를 입력하세요: ");
         num1 = sc.nextInt();
         num2 = sc.nextInt();
         
@@ -223,7 +224,7 @@ public class OperTask2 {
                : choice == 3 ? menu3 
                : choice == 4 ? menu4 : errorMessage; 
         
-        System.out.println(result);
+        System.out.println("선택하신 메뉴: " + result);
         sc.close();
     }
 }
@@ -246,9 +247,9 @@ public class OperTask3 {
         int score = 0;
         Scanner sc = new Scanner(System.in);
         String result = null;
-        String message = "Insert your test score: ";
+        String message = "시험 점수를 입력하세요: ";
         String gradeA = "A", gradeB = "B", gradeC = "C", gradeF = "F";
-        String ErrorM = "Invalid Input";
+        String ErrorM = "잘못된 입력입니다";
         
         System.out.println(message);
         score = sc.nextInt();
@@ -258,7 +259,7 @@ public class OperTask3 {
                : score >= 70 ? gradeC 
                : score < 70 ? gradeF : ErrorM;
         
-        System.out.println("Your grade is: " + result);
+        System.out.println("당신의 등급은: " + result);
         sc.close();
     }
 }
@@ -314,6 +315,12 @@ public class OperTest3 {
 ---
 
 ## 10. 실무 팁
+
+### 변수 초기값
+- **정수**: `0`
+- **실수**: `0.0`
+- **문자형**: `' '` (공백문자)
+- **문자열**: `null` 또는 `""` (+ 연산자로 강제 형변환시 `""` 사용)
 
 ### 코드 작성 시 주의사항
 1. **변수 초기화**: 입력받기 전에 변수를 0이나 null로 초기화
