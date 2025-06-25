@@ -1,4 +1,4 @@
-# Java Operators (2025/06/25)
+# Java Input, Operators (2025/06/25)
 
 ## 1. Input
 
