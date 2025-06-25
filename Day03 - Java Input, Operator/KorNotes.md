@@ -1,7 +1,5 @@
 # Java Input, Operators, and Practice (2025/06/25)
 
----
-
 ## 1. 입력 (Input) in Java
 
 ### 입력의 기본
@@ -31,7 +29,6 @@ String b = sc.nextLine();  // 한 줄 전체 입력
 int n = sc.nextInt();      // 정수 입력
 ```
 
----
 
 ## 2. 연산자 (Operators)
 
@@ -54,12 +51,10 @@ int n = sc.nextInt();      // 정수 입력
 ### 결합성
 - 동일 연산자가 여러 번 사용될 때, **알맞은 방향**(좌→우, 우→좌)으로 결합되어 연산됨.
 
----
 
 ## 3. 이항 연산자 (Binary Operators)
 - `+`, `-`, `*`, `/`, `%` 등 두 개의 피연산자를 필요로 함.
 
----
 
 ## 4. 논리형 (boolean)
 
@@ -71,7 +66,6 @@ int n = sc.nextInt();      // 정수 입력
 - 선언 예시: `boolean 변수명 = true;`
 - 크기: 1 byte
 
----
 
 ## 5. 조건식 (Conditional Expression)
 - **결과가 참 또는 거짓**(true/false)로 나오는 식.
@@ -98,7 +92,6 @@ int n = sc.nextInt();      // 정수 입력
 |--------|----------------------------------------|
 | !      | NOT, 참이면 거짓, 거짓이면 참으로 변경 |
 
----
 
 ## 6. 삼항 연산자 (Ternary Operator)
 - **형식**: `조건식 ? 참 : 거짓`
@@ -109,7 +102,6 @@ int n = sc.nextInt();      // 정수 입력
     ```
 - **사용 시점**: 조건식이 딱 한 개 있을 때만 사용 권장.
 
----
 
 ## 7. 실습 예제
 
@@ -124,8 +116,6 @@ int remainder = num1 % num2;
 System.out.println("몫: " + division + ", 나머지: " + remainder);
 sc.close();
 ```
-
----
 
 ### 7.2 키오스크 메뉴 선택
 
@@ -143,8 +133,6 @@ System.out.println(result);
 sc.close();
 ```
 
----
-
 ### 7.3 성적 등급 매기기
 
 ```java
@@ -160,8 +148,6 @@ System.out.println("Your grade is: " + result);
 sc.close();
 ```
 
----
-
 ### 7.4 이항 연산자 실습
 
 ```java
@@ -173,7 +159,6 @@ System.out.println(30 / (double)4); // 7.5 (실수 나눗셈)
 System.out.println(30 % 4);       // 2 (나머지)
 ```
 
----
 
 ### 7.5 삼항 연산자 실습
 
@@ -183,7 +168,6 @@ String result = num2 % num1 == 0 ? "나머지가 없습니다." : "나머지: " 
 System.out.println(result);
 ```
 
----
 
 ### 7.6 논리 연산자 실습
 
@@ -197,7 +181,6 @@ System.out.println(isTrue || 10 != 10); // true
 System.out.println(isTrue && !(10 != 10)); // true
 ```
 
----
 
 ### 7.7 입력 실습
 
@@ -231,7 +214,6 @@ System.out.println(name + "님 환영합니다!");
 sc.close();
 ```
 
----
 
 ## 8. 추가 팁
 
@@ -239,7 +221,6 @@ sc.close();
 - **변수 선언**: 항상 코드 상단에 선언.
 - **입력 안내 메시지**: 사용자에게 입력값 예시와 함께 안내 출력.
 
----
 
 ## 9. 연산자 우선순위 표
 
@@ -256,7 +237,6 @@ sc.close();
 | 9        | \|\|               | 논리 OR                  |
 | 10       | =, +=, -=, ...     | 대입 연산자              |
 
----
 
 ## 10. 실습 시 주의사항 및 팁
 
@@ -265,12 +245,3 @@ sc.close();
 - **형변환 주의**: 문자열 입력 후 정수로 변환 필요시 `Integer.parseInt()` 사용.
 - **삼항 연산자**: 조건이 1개일 때만 사용 권장, 복잡한 조건은 if문 사용.
 
----
-
-## 11. 오늘의 요약
-
-- Java에서 입력받는 방법과 다양한 연산자(산술, 논리, 관계, 삼항 등)의 사용법을 익힘.
-- 실습을 통해 입력, 출력, 연산자 활용 능력 강화.
-- 코드 작성 시 입력 안내, 변수 선언, 자원 관리(Scanner close) 등 기본 습관 중요.
-
----
