@@ -316,6 +316,12 @@ public class OperTest3 {
 
 ## 10. Practical Tips
 
+### Variable Default Values
+- **Integer**: `0`
+- **Double/Float**: `0.0`
+- **Character**: `' '` (space character)
+- **String**: `null` or `""` (use `""` for string concatenation with `+` operator for type casting)
+
 ### Code Writing Precautions
 1. **Variable initialization**: Initialize variables to 0 or null before input
 2. **Meaningful variable names**: Use purposeful names like `choice`, `result`, `message`
