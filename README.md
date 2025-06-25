@@ -16,7 +16,7 @@ java-class-notes/
 ├── day02-Variables-DataTypes/
 │   ├── korNotes.md
 │   ├── README.md
-│   └── code-examples/
+│   └── CodeExample/
 └── ...
 ```
 
