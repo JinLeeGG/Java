@@ -35,9 +35,12 @@ public class WhileTask {
 		
 		mbti = sc.next();
 		
-//		while(true) {
-//			if mbti 
-//		}
+		while(true) {
+			if (mbti.equal("ESFP") {
+				Syso
+			}
+			
+		}
 		
 	}
 }
