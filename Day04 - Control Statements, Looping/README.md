@@ -138,24 +138,6 @@ for(initialization; condition; increment/decrement){
 }
 ```
 
-#### Execution Flow
-```mermaid
-graph TD
-    A[1. Initialization] --> B[2. Condition Check]
-    B -->|true| C[3. Execute Statement]
-    C --> D[4. Increment/Decrement]
-    D --> B
-    B -->|false| E[Loop Termination]
-```
-
-#### Execution Order
-1. **Initialization** (executed only once)
-2. **Condition Check**
-3. **Execute Statement** (if condition is true)
-4. **Increment/Decrement**
-5. **Condition Check** (return to step 2)
-6. Repeat until condition becomes false
-
 ### 2. while Loop
 
 #### Syntax
