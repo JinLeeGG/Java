@@ -27,9 +27,9 @@ To use the fields of a class, you first need to create an **object** from it. Th
 
 ```mermaid
 graph TD
-    A[Class (Blueprint)] -- Instantiation --> B(Object 1);
-    A -- Instantiation --> C(Object 2);
-    A -- Instantiation --> D(Object 3);
+    A["Class (Blueprint)"] -- Instantiation --> B("Object 1");
+    A -- Instantiation --> C("Object 2");
+    A -- Instantiation --> D("Object 3");
 ```
 
 -----
