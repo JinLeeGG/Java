@@ -1,46 +1,260 @@
-# Polymorphism and Inheritance in OOP (2025/07/02)
+# Java Inheritance & Polymorphism (2025-07-02)
 
-## 상속(Inheritance)
-1. 기존에 선언된 클래스의 필드를 새로 만든 클래스의 필드로 사용하고자 할 때
-2. 여러 클래스 선언 시 필드가 겹칠 때 부모 클래스를 먼저 선언하고 공통 필드를 묶어서 자식 클래스들에게 상속해준다. (추상화)
+## 📜 Inheritance (상속)
 
-### 상속 문법
-	class A {
-		A 필드
-	{
-	
-	class B extends A {
-		A필드, B필드
+**Inheritance** is a fundamental mechanism in Object-Oriented Programming (OOP) where a new class derives properties (fields) and behaviors (methods) from an existing class. This promotes code reusability and establishes a clear relationship between classes.
+
+  - **Purpose**: To reuse fields and methods of an existing class in a new class. When multiple classes share common fields, you can create a parent class (an abstraction) that groups these common fields and then have child classes inherit from it.
+  - **Parent Class (Superclass)**: The class whose properties are inherited. Also known as a superclass or base class.
+  - **Child Class (Subclass)**: The class that inherits the properties. Also known as a subclass, derived class, or extended class.
+
+### Syntax
+
+The `extends` keyword is used for inheritance in Java.
+
+```java
+// Parent Class (Superclass)
+class A {
+    // Fields and methods of A
+}
+
+// Child Class (Subclass)
+// Class B inherits all public and protected members of A
+class B extends A {
+    // It has access to fields of A
+    // and can also have its own specific fields and methods.
+}
+```
+
+### The `super` Keyword
+
+In a child class, the `super` keyword is used to refer to its immediate parent class.
+
+  - `super()`: Calls the parent class's constructor. It must be the very first statement in the child class's constructor.
+  - `super.memberName`: Accesses a field or method of the parent class.
+
+### Class Loading and Constructors
+
+When a child class object is created, the parent class constructor is called *first*, before the child class constructor. This ensures that the inherited parts of the object are initialized before the child-specific parts.
+
+```java
+// inheritanceTest/InheritanceTest.java
+
+class A {
+	public A() {
+		// This constructor is called first.
+		System.out.println("Parent constructor called.");
 	}
+}
 
-A: 부모 클래스, 상위 클래스, 슈퍼 클래스, 기반 클래스
-B: 자식 클래스, 하위 클래스, 서브 클래스, 파생 클래스	
+class B extends A {
+	public B() {
+		super(); // This call happens implicitly if not written.
+		// This constructor is called second.
+		System.out.println("Child constructor called.");
+	}
+}
 
+public class InheritanceTest {
+	public static void main(String[] args) {
+		B b = new B();
+	}
+}
+```
 
+**Output:**
 
-## 다형성(Polymorphism)
-	1. 오버로딩(Overloading)
-	- 매개변수의 개수 또는 타입이 다르면 동일한 이름의 메소드로 선언할 수 잇다.
-	2. 오버라이딩(Overriding)
-	- 부모 필드에서 선언한 메서드를 자식 필드에서 수정하고자 할 때 재정의를 해야 한다.
-	이는 자식에서 부모 필드의 매서드와 동일한 이름으로 선언하는 것이다.
-	부모 필드가 메모리에 먼저 할당되고, a 라는 메서드가 먼저 올라간다고 하면,
-	자식 필드가 메모리에 할당되면서 재정의한 메서드가 새롭게 만들어지는 것이 아니라
-	기존에 할당된 a메서드의 저장공간에 새롭게 재정의한 자식 필드의 소스코드로 주소가 들어가게 된다.
-	따라서 자식 객체로 a메서드에 접근하면 자식 필드에서 재정의한 소스코드의 내용이 읽히게 된다.
+```
+Parent constructor called.
+Child constructor called.
+```
 
+-----
 
+## 🎭 Polymorphism (다형성)
 
-Storage class(저장 기억 부류)		
-		지역변수		매개변수 전역변수 		정적변수(static)
-------------------------------------------------------------------------
-1. 초기화		초기화		직접			자동
-2. 생명주기	} (생명주기끝)	new			프로그램 종료
+**Polymorphism**, meaning "many forms," allows objects to be treated as instances of their parent class, but still execute the overridden methods of their own class. This is achieved in two ways in Java: **Overloading** and **Overriding**.
 
+### 1\. Overloading (Compile-Time Polymorphism)
 
-Static 결론
-1) Static은 생성자에 의존하지 않는다.
-- compiler가 가장 먼저 할당시켜준다.
-2) static은 무조건 딱 1개만 존재한다.
-3) static은 클래스에서 모든 값을 공유할 때 사용한다.
+**Overloading** allows a class to have multiple methods with the **same name**, as long as their **parameter lists are different**. The difference can be in the number of parameters or the type of parameters.
 
+```java
+class Calculator {
+    // Method to add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded method to add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Overloaded method to add two doubles
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+```
+
+### 2\. Overriding (Runtime Polymorphism)
+
+**Overriding** occurs when a child class provides a specific implementation for a method that is already defined in its parent class. The method in the child class must have the same name, return type, and parameters as the one in the parent class.
+
+  - The `@Override` annotation is used to indicate that a method is intended to override a method in a superclass. It helps the compiler catch errors, for example, if the method signature doesn't match the parent's.
+  - When a method is called on an object, the JVM decides at runtime which version of the method to execute based on the object's actual type. The parent's method in memory is effectively replaced by the child's implementation for objects of the child type.
+
+### Example: `Person`, `Student`, and `Employee`
+
+Let's look at an example where `Student` and `Employee` are specialized types of a `Person`.
+
+#### Class Hierarchy Diagram
+
+```mermaid
+graph TD
+    A[PersonTask] --> B[StudentTask];
+    A --> C[EmployeeTask];
+```
+
+#### Base Class: `PersonTask`
+
+This class defines the general attributes and behaviors of a person.
+
+```java
+// inheritanceTask/PersonTask.java
+public class PersonTask {
+    String name;
+    int age;
+    String address;
+    String phone;
+
+    // Constructor...
+    public PersonTask(String name, int age, String address, String phone) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.phone = phone;
+    }
+
+    public void work() { System.out.println("Works."); }
+    public void sleep() { System.out.println("Sleeps."); }
+    public void eat() { System.out.println("Eats three meals a day."); }
+}
+```
+
+#### Subclasses: `StudentTask` and `EmployeeTask`
+
+These classes inherit from `PersonTask` and **override** its methods to provide specialized behaviors.
+
+\<br\>
+
+**StudentTask.java**
+
+```java
+// inheritanceTask/StudentTask.java
+public class StudentTask extends PersonTask {
+    String instaId;
+
+    public StudentTask(String name, int age, String address, String phone, String instaId) {
+        super(name, age, address, phone); // Calls parent constructor
+        this.instaId = instaId;
+    }
+
+    @Override
+    public void work() { System.out.println("Does part-time work."); }
+    @Override
+    public void sleep() { System.out.println("Sleeps during class."); }
+    @Override
+    public void eat() { System.out.println("Skips breakfast."); }
+}
+```
+
+**EmployeeTask.java**
+
+```java
+// inheritanceTask/EmployeeTask.java
+public class EmployeeTask extends PersonTask {
+    int emergencyCash;
+
+    public EmployeeTask(String name, int age, String address, String phone, int cash) {
+        super(name, age, address, phone); // Calls parent constructor
+        this.emergencyCash = cash;
+    }
+
+    @Override
+    public void work() { System.out.println("Works all day."); }
+    @Override
+    public void sleep() { System.out.println("Has a restless sleep."); }
+    @Override
+    public void eat() { System.out.println("Eats late-night snacks."); }
+}
+```
+
+#### Method Behavior Summary
+
+| Class         | `work()`                | `sleep()`                 | `eat()`                      |
+|---------------|-------------------------|---------------------------|------------------------------|
+| `PersonTask`  | Works.                  | Sleeps.                   | Eats three meals a day.      |
+| `StudentTask` | Does part-time work.    | Sleeps during class.      | Skips breakfast.             |
+| `EmployeeTask`| Works all day.          | Has a restless sleep.     | Eats late-night snacks.      |
+
+-----
+
+## 🌀 The `static` Keyword
+
+The `static` keyword indicates that a member (field or method) belongs to the **class itself**, rather than to an instance (object) of the class.
+
+### Key Characteristics of `static` Members
+
+1.  **Single Copy**: There is only one copy of a static variable per class, regardless of how many objects are created. All objects of the class share this single variable.
+2.  **Class-Level Access**: They can be accessed directly using the class name, e.g., `ClassName.staticMember`, without needing to create an object.
+3.  **Early Initialization**: Static members are initialized when the class is loaded by the Java Virtual Machine (JVM), which happens before any objects of the class are created.
+4.  **No `this`**: Static methods cannot use the `this` keyword because they are not associated with a specific object instance. They also cannot directly access instance variables or instance methods.
+
+### When to Use `static`?
+
+Use the `static` keyword when a variable's value needs to be shared among all objects of a class, like a counter or a constant value.
+
+### Example: Instance vs. Static Variables
+
+In the `StaticTest` example, `data` is an **instance variable** (dynamic), while `data_s` is a **static variable**.
+
+```java
+// staticTest/StaticTest.java
+class Data {
+    int data = 0;           // Instance variable, each object gets its own copy.
+    static int data_s = 0;  // Static variable, shared by all objects.
+
+    void increase() {
+        System.out.println("Instance: " + ++data);
+    }
+
+    void increase_s() {
+        System.out.println("Static: " + ++data_s);
+    }
+}
+
+public class StaticTest {
+    public static void main(String[] args) {
+        System.out.println("--- First Object ---");
+        Data data1 = new Data();
+        data1.increase();   // Instance: 1
+        data1.increase_s(); // Static: 1
+        data1.increase_s(); // Static: 2
+
+        System.out.println("\n--- Second Object ---");
+        Data data2 = new Data();
+        data2.increase();   // Instance: 1 (data2's own copy)
+        data2.increase_s(); // Static: 3 (shared copy is incremented)
+        data2.increase_s(); // Static: 4
+    }
+}
+```
+
+**Execution Analysis:**
+
+  - `data1.increase()` increments its personal copy of `data`.
+  - `data2.increase()` increments *its own* personal copy of `data`, which is separate from `data1`'s.
+  - However, both `data1.increase_s()` and `data2.increase_s()` increment the *same* static variable `data_s`. The changes made by one object are visible to the other.
+  - Creating a new object (`new Data()`) resets instance variables for the new object but has no effect on static variables. Static variables persist for the lifetime of the program unless the class is unloaded.
