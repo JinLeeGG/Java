@@ -1,4 +1,4 @@
-# Java Notes: Abstract Classes and  (2025/07/04)
+# Abstract Classes and Interface (2025/07/04)
 
 ## 🔹 Abstract Classes
 
